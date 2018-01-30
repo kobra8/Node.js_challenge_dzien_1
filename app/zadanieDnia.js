@@ -2,22 +2,27 @@
 
 let numbers = [];
 
-this.numbers = process.argv.slice(2)
+numbers = process.argv.slice(2)
 
-console.log(this.numbers);
+let sortNumbers = (a, b) => a - b
 
-this.numbers.map((x, i) => {
+numbers.map((x, i) => {
     y = parseInt(x);
-    this.numbers.splice(i, 1, y);
+    numbers.splice(i, 1, y);
 });
 
-console.log(this.numbers.sort());
+numbers = numbers.sort(sortNumbers);
+console.log(numbers);
 
+let count = 0;
 let timeout = 0;
-const intervalId = setTimeout(() => {
-for (let i = 0; i < numbers.length; i++) {
-    console.log(numbers[i])
-    timeout = numbers[i]*1000;
-}
 
-}, timeout)
+    const intervalId = setInterval(() => {
+        console.log(numbers[count]);
+        count++
+        if (count === numbers.length) {
+            clearInterval(intervalId);
+              }
+        }, 
+       setInterval(() => numbers[count] * 1000, numbers[count] * 1000) 
+    )
