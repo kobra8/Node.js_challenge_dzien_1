@@ -14,15 +14,9 @@ numbers.map((x, i) => {
 numbers = numbers.sort(sortNumbers);
 console.log(numbers);
 
-let count = 0;
-let timeout = 0;
 
-    const intervalId = setInterval(() => {
-        console.log(numbers[count]);
-        count++
-        if (count === numbers.length) {
-            clearInterval(intervalId);
-              }
-        }, 
-       setInterval(() => numbers[count] * 1000, numbers[count] * 1000) 
-    )
+for(let i = 0; i < numbers.length; i++) {
+    setTimeout(()=> {
+        console.log(numbers[i]);
+    },  numbers[i] * 1000);
+}
